@@ -4,9 +4,7 @@
 
 Objetivo: aplicar os conceitos da arquitetura MVC (Model-View-Controller) aprendidos durante o treinamento de Starter da GFT Brasil.
 
-
-<br>
-**PROJETO FINAL**
+ 
 
 <img src="https://i.postimg.cc/4dm5QY6y/Meu-projeto-1.jpg" alt="GFTMilhas"/>
 
