@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"></head>
+<body>
+			
+	<nav class="sidebar sidebar-open" th:fragment="nav-sidebar">
+				<ul class="nav nav-pills">
+					<li class="nav-item"><a class="nav-link " th:href="@{/ranking/listar}"> <i
+							class="oi oi-flag"></i> <span>Ranking</span>
+					</a></li>
+				</ul>
+
+		<ul class="nav nav-pills">
+			<li class="nav-item"><span class="nav-link active">Eventos</span></li>
+			<li class="nav-item"><a class="nav-link" th:href="@{/evento/novo}"> <i class="oi oi-plus"></i>
+					<span>Cadastrar</span>
+				</a></li>
+			<li class="nav-item"><a class="nav-link" th:href="@{/evento/listar}"> <i class="oi oi-spreadsheet"></i>
+					<span>Listar </span>
+			<li class="nav-item"><a class="nav-link" th:href="@{/evento/controle}"> <i class="oi oi-task"></i>
+					<span>Controle </span>
+				</a></li>
+		</ul>
+
+				<ul class="nav nav-pills">
+					<li class="nav-item"><span class="nav-link active" >Grupos</span></li>
+					<li class="nav-item"><a class="nav-link" 
+						th:href="@{/grupo/cadastrarEditar}"> <i class="oi oi-plus"></i> <span>Cadastrar </span>
+					</a></li>
+					<li class="nav-item"><a class="nav-link" 
+						th:href="@{/grupo}"> <i
+							class="oi oi-spreadsheet"></i> <span>Listar </span>
+					</a></li>
+	
+				</ul>
+
+				<ul class="nav nav-pills">
+					<li class="nav-item"><span class="nav-link active">Participantes</span></li>
+					<li class="nav-item"><a class="nav-link" 
+						th:href="@{/participante/cadastrarEditar}"> <i class="oi oi-plus"></i> <span>Cadastrar </span>
+					</a></li>
+					<li class="nav-item"><a class="nav-link" 
+						th:href="@{/participante}"> <i class="oi oi-spreadsheet"></i> <span>Listar </span>
+					</a></li>
+				</ul>
+				
+				<ul class="nav nav-pills">
+					<li class="nav-item"><span class="nav-link active">Atividades</span></li>
+					<li class="nav-item"><a class="nav-link" 
+						th:href="@{/atividade/cadastrarEditar}"> <i class="oi oi-plus"></i> <span>Cadastrar </span>
+					</a></li> 
+					<li class="nav-item"><a class="nav-link" 
+						th:href="@{/atividade}"> <i class="oi oi-spreadsheet">
+						</i> <span>Listar </span>
+						
+					</a></li>
+				</ul>
+					
+				<ul class="nav nav-pills">
+					<li class="nav-item"><span class="nav-link active">Usuários</span></li>
+					<li class="nav-item"><a class="nav-link" 
+						th:href="@{/usuario/cadastrarEditar}"> <i class="oi oi-plus"></i> <span>Cadastrar </span>
+					</a></li>
+					<li class="nav-item"><a class="nav-link" 
+						th:href="@{/usuario}"> <i class="oi oi-spreadsheet"></i> <span>Listar </span>
+					</a></li>
+				</ul>
+					
+				
+		
+			</nav>
+
+</body>
+</html>

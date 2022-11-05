@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout.html}">
+<meta charset="UTF-8">
+<body>
+
+	<section class="layout-content" layout:fragment="corpo">
+		<nav class="navbar navbar-expand-md bg-light">
+			<div class="collapse navbar-collapse" id="navbarsExampleDefault">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item active"><i class="oi oi-caret-right"></i>
+						<span> Ranking</span></li>
+				</ul>
+			</div>
+
+
+
+
+		</nav>
+
+	
+		
+						
+		 					
+		 		                     ﾠﾠﾠﾠﾠﾠﾠﾠﾠﾠﾠﾠﾠﾠﾠﾠﾠﾠ	                                                     					
+		 		                      		                     ﾠﾠﾠﾠﾠﾠﾠﾠﾠﾠﾠﾠﾠﾠﾠﾠﾠﾠ	                                                     	    <img src="/image/gftmilhas_background2.png" align="center" alt="GFT" width="300" >
+		<br>
+		<br>
+
+		<div class="alert alert-primary" th:if="${#lists.isEmpty(lista)}">
+			Nenhum grupo rankeado</div>
+		<div class="alert alert-primary" th:if="${mensagem != null}"
+			th:text="${mensagem}"></div>
+		<div th:if="${not #lists.isEmpty(lista)}">
+			<table class="table">
+				<thead>
+					<tr>
+						
+						<th>Nome </th>
+						<th>Pontuação</th>
+
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="grupo: ${lista}">
+						
+						<td th:text="${grupo.nome}"></td>
+						<td th:text="${grupo.pontuacaoFinal}"></td>
+
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+
+	</section>
+</body>
+</html>

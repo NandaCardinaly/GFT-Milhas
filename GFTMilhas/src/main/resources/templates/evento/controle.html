@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html layout:decorate="~{layout}">
+
+<head>
+	<meta charset="UTF-8" />
+</head>
+
+<body>
+
+	<section class="layout-content" layout:fragment="corpo">
+
+		<nav class="navbar navbar-expand-md bg-light">
+			<div class="collapse navbar-collapse" id="navbarsExampleDefault">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item active">
+						<i class="oi oi-caret-right"></i>
+						<span>Eventos</span>
+					</li>
+				</ul>
+			</div>
+		</nav>
+
+		<div class="alert alert-primary" th:if="${#lists.isEmpty(lista)}">
+			Nenhum evento cadastrado
+		</div>
+		<div class="alert alert-primary" th:if="${mensagem != null}" th:text="${mensagem}"></div>
+		<div th:if="${not #lists.isEmpty(lista)}">
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>Id</th>
+						<th>Nome</th>
+						<th>Data de início</th>
+						<th>Data final</th>
+						<th>Opções</th>
+					</tr>
+				</thead>
+
+				<tbody>
+					<tr th:each="Evento: ${lista}">
+						<td th:text="${Evento.id}"></td>
+						<td th:text="${Evento.nome}"></td>
+						<td th:text="${#temporals.format(Evento.dataInicio,'dd-MM-yyyy')}"></td>
+						<td th:text="${#temporals.format(Evento.dataFinal,'dd-MM-yyyy')}"></td>
+						<td><a class="btn btn-primary btn-sm"
+								th:href="@{/evento/atraso(id=${Evento.id})}">Gerenciar Evento</a>
+						</td>
+					</tr>
+
+				</tbody>
+			</table>
+		</div>
+
+	</section>
+</body>
+
+</html>

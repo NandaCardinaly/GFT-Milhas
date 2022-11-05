@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html layout:decorate="~{layout}">
+
+<head>
+	<meta charset="UTF-8" />
+</head>
+
+<body>
+
+	<section class="layout-content" layout:fragment="corpo">
+
+		<nav class="navbar navbar-expand-md bg-light">
+			<div class="collapse navbar-collapse" id="navbarsExampleDefault">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item active">
+						<i class="oi oi-caret-right"></i>
+						<span>Cadastrar Grupos</span>
+					</li>
+				</ul>
+
+				<a class="btn btn-primary btn-md" th:href="@{/grupo}" role="button">
+					<span class="oi oi-spreadsheet" title="Listar" aria-hidden="true"></span>
+					<span>Listar Grupos</span>
+				</a>
+			</div>
+		</nav>
+		<div class="alert alert-primary" th:if="${mensagem != null}" th:text="${mensagem}">
+		</div>
+
+		<div class="card-body">
+			<form method="POST" th:object="${grupo}" th:action="@{/grupo/cadastrarEditar}">
+				<input type="hidden" th:field="*{id}">
+
+
+				<div class="form-group mb-3">
+					<label for="nome">Nome:</label> <input class="form-control" type="text" th:field="*{nome}"
+						required></input>
+					<div class="text-danger" th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></div>
+				</div>
+				
+				<div class="form-group mb-3">
+					<label for="nome">Escolha um Evento:</label>
+					<select class="form-select" th:field="*{evento}">
+						<option th:each="evento: ${lista}" th:value="${evento.id}" th:text="${evento.nome}" />
+					</select>
+				</div>
+
+				<button type="submit" class="btn btn-primary">Salvar
+					Grupo</button>
+			</form>
+		</div>
+
+	    </section>
+</body>
+</html>

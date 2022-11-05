@@ -1,0 +1,101 @@
+<!DOCTYPE çhtml>
+<html layout:decorate="~{layout}">
+
+<head>
+	<meta charset="UTF-8" />
+
+</head>
+
+<body>
+
+	<section class="layout-content" layout:fragment="corpo">
+
+		<nav class="navbar navbar-expand-md bg-light">
+			<div class="collapse navbar-collapse" id="navbarsExampleDefault">
+				<ul class="navbar-nav mr-auto">
+
+				</ul>
+				<div class="alert alert-primary" th:if="${mensagem != null}" th:text="${mensagem}"></div>
+
+				<div class="container">
+
+					<i class="oi oi-caret-right"></i>
+					<span>Informações do Evento</span>
+
+					<div class="espacamento mb-5"></div>
+
+
+					<form method="POST" th:object="${atraso}" th:action="@{/evento/atraso}">
+							
+						<input type="hidden" th:value="${evento.id}" th:name="idEvento">
+						
+						<div class="nome mb-3">
+							<label for="nome">Nome do evento:</label>
+							<input class="form-control" type="text" th:value="${evento.nome}" disabled></input>
+							<!-- <div class="text-danger" th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></div> -->
+						</div>
+
+						<div class="data mb-3">
+							<label for="nome">Data:</label>
+							<ul class="list-group">
+								<li class="list-group-item" th:each="data: ${datas}" th:text="${data}"></li>
+							</ul>
+						</div>
+
+						<div class="atividade mb-3">
+							<table class="table table-striped">
+									<thead>
+										<tr>
+											<th>Atividades</th>
+											<th>Cumpriu</th>
+										</tr>
+									</thead>
+
+									<tbody>
+										<tr th:each="atividade, itemAtividade: ${listaAtividades}">
+											<td><input size="60" th:value="${atividade.nome}" th:name="|atividadesAtraso[${itemAtividade.index}].atividade|" ></td>
+											<td><input type="checkbox" th:name="|atividadesAtraso[${itemAtividade.index}].checked|"></td>
+										</tr>
+									</tbody>
+								</table>
+						</div>
+
+						<div class="card mb-3" style="width: 100%;" th:each="grupo, itemGrupo: ${grupos}">
+							<div class="card-body">
+
+								<h5 class="card-title" th:text="${grupo.nome}"></h5>
+								
+								<input type="hidden" th:value="${grupo.id}" th:name="|grupoAtraso[${itemGrupo.index}].idGrupo|"> 
+								
+								<table class="table table-striped">
+									<thead>
+										<tr>
+											<th>Id</th>
+											<th>Participante</th>
+											<th>Atraso</th>
+											<th>Presença</th>
+										</tr>
+									</thead>
+
+									<tbody>
+										<tr th:each="participante, itemParticipante: ${grupo.participantes}">
+											<td><input th:value="${participante.id}" th:name="|grupoAtraso[${itemGrupo.index}].participantesAtraso[${itemParticipante.index}].idParticipante|"></td>
+											<td><input th:value="${participante.nome}" th:name="|grupoAtraso[${itemGrupo.index}].participantesAtraso[${itemParticipante.index}].nomeParticipante|"></td>
+											<td><input type="checkbox" th:name="|grupoAtraso[${itemGrupo.index}].participantesAtraso[${itemParticipante.index}].atraso|"></td>
+											<td><input type="checkbox" th:name="|grupoAtraso[${itemGrupo.index}].participantesAtraso[${itemParticipante.index}].presenca|"></td>
+										</tr>
+									</tbody>
+								</table>
+
+							</div>
+						</div>
+
+						<button type="submit" class="btn btn-primary card-link">Salvar</button>
+					</form>
+				</div>
+			</div>
+			</div>
+	</section>
+</body>
+
+</html>

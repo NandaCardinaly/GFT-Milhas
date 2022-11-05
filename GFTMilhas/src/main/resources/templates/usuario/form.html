@@ -1,0 +1,75 @@
+ 
+ <!DOCTYPE html>
+<html layout:decorate="~{layout}">
+<head><meta charset="UTF-8"/></head>
+<body>
+ 
+  <section class="layout-content" layout:fragment="corpo">
+	
+	        <nav class="navbar navbar-expand-md bg-light">
+	            <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+	                <ul class="navbar-nav mr-auto">
+	                    <li class="nav-item active">
+	                        <i class="oi oi-caret-right"></i>
+	                        <span>Cadastrar Usuários</span>
+	                    </li>
+	                </ul>
+	                
+	                <a class="btn btn-primary btn-md" th:href="@{/usuario}" role="button">
+	                    <span class="oi oi-spreadsheet" title="Listar" aria-hidden="true"></span>
+	                    <span>Listar Usuários</span>
+	                </a>
+	            </div>
+	        </nav>
+		<div class="alert alert-primary" th:if="${mensagem != null}" th:text="${mensagem}">
+											</div>
+
+			<div class="card-body">
+			<form method="POST" th:object="${usuario}"
+				th:action="@{/usuario/cadastrarEditar}">
+				<input type="hidden" th:field="*{id}">
+				
+	
+				<div class="form-group mb-3">
+					<label for="nome">Nome:</label> <input class="form-control"
+						type="text" th:field="*{nome}" required></input>
+					<div class="text-danger" th:if="${#fields.hasErrors('nome')}"
+						th:errors="*{nome}"></div>
+				</div>
+
+				
+				<div class="form-group mb-3">
+					<label for="email">Email:</label> <input class="form-control"
+						type="text" th:field="*{email}" required></input>
+					<div class="text-danger" th:if="${#fields.hasErrors('email')}"
+						th:errors="*{email}"></div>
+				</div>
+
+				<div class="form-group mb-3">
+					<label for="quatroLetras">Quatro Letras:</label> <input
+						class="form-control" type="text" th:field="*{quatroLetras}"
+						maxlength="4" required></input>
+					<div class="text-danger"
+						th:if="${#fields.hasErrors('quatroLetras')}"
+						th:errors="*{quatroLetras}"></div>
+				</div>
+
+				<div class="form-group mb-3">
+					<label for="senha">Senha:</label> <input class="form-control"
+						type="password" th:field="*{senha}" required></input>
+					<div class="text-danger" th:if="${#fields.hasErrors('senha')}"
+						th:errors="*{senha}"></div>
+				</div>
+
+				<button type="submit" class="btn btn-primary">Salvar
+					Usuário</button>
+			</form>
+		</div>
+	</div>
+	
+		
+	
+
+	    </section>
+</body>
+</html>

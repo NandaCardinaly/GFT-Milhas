@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html layout:decorate="~{layout}">
+<head><meta charset="UTF-8" /></head>
+<body>
+		
+	<section class="layout-content" layout:fragment="corpo">	
+		<nav class="navbar navbar-expand-md bg-light">
+			<div class="collapse navbar-collapse" id="navbarsExampleDefault">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item active">
+						<i class="oi oi-caret-right"></i>
+						<span>Seja bem vindo</span>
+					</li>
+				</ul>
+			</div>
+		</nav>
+		
+		<div class="container">
+		<span>Esse projeto foi realizado para fins de estudo, como parte 	
+		 das atividades de treinamento GFT - Start </span>
+		<br>
+		<br>
+	
+			<div id="list-home" class="row">
+				<div class="col-4">
+					<div class="list-group" id="list-tab" role="tablist">
+						<a class="list-group-item list-group-item-action active"
+							id="list-spring-boot-list" data-toggle="list" href="#spring-boot"
+							role="tab" aria-controls="spring-boot">Spring</a> <a
+							class="list-group-item list-group-item-action" id="list-sts-list"
+							data-toggle="list" href="#sts" role="tab" aria-controls="sts">Spring
+							Tool Suite</a> <a class="list-group-item list-group-item-action"
+							id="list-thymeleaf-list" data-toggle="list" href="#thymeleaf"
+							role="tab" aria-controls="thymeleaf">Thymeleaf</a> <a
+							class="list-group-item list-group-item-action"
+							id="list-webjars-list" data-toggle="list" href="#webjars"
+							role="tab" aria-controls="webjars">WebJars</a> <a
+							class="list-group-item list-group-item-action"
+							id="list-hibernate-list" data-toggle="list" href="#hibernate"
+							role="tab" aria-controls="hibernate">Hibernate</a> <a
+							class="list-group-item list-group-item-action"
+							id="list-bootstrap-list" data-toggle="list" href="#bootstrap"
+							role="tab" aria-controls="bootstrap">Bootstrap 4</a>
+					</div>
+				</div>
+				<div class="col-8">
+					<div class="tab-content" id="nav-tabContent">
+						<div class="tab-pane fade show active" id="spring-boot"
+							role="tabpanel" aria-labelledby="list-spring-boot-list">
+							<a href="https://projects.spring.io/spring-boot/">Spring </a>
+							Utilizamos o Spring Boot com os seguintes starters: Spring MVC,
+							Spring Security, Spring Validation, Spring Dev Tools e Spring Data JPA. 
+
+
+						</div>
+						<div class="tab-pane fade" id="sts" role="tabpanel"
+							aria-labelledby="list-sts-list">
+							<a href="https://spring.io/tools">Spring Tools 4 para Eclipse</a> 
+							Plugin do ambiente de desenvolvimento  Eclipse que é customizado para
+							trabalhar com aplicativos Spring. Ele fornece, pronto para uso, o
+							ambiente para implementar, depurar, executar e implantar e incluir 
+							algumas integrações.
+						</div>
+						<div class="tab-pane fade" id="thymeleaf" role="tabpanel"
+							aria-labelledby="list-thymeleaf-list">
+							<a href="http://www.thymeleaf.org/">Thymeleaf</a> O Thymeleaf é um engine 
+							para Java usado como alternativa ao JSP, as páginas são escritas em HTML5 
+							e já tem uma boa integração com Spring, quando usamos o Thymeleaf ficamos 
+							livres de usar o JSTL nas nossas páginas, pois o mesmo já nos oferece 
+							recursos para criação de loops, estruturas condicionais entre outras funções.
+						</div>
+						<div class="tab-pane fade" id="webjars" role="tabpanel"
+							aria-labelledby="list-webjars-list">
+							<a href="https://www.webjars.org/">WebJars</a> WebJars são bibliotecas da Web 
+							do lado do cliente empacotadas em arquivos JAR (Java Archive). Utilizamos 
+							principalmente para personalizar nossa aplicação, incluindo a depedência
+							do open-iconic.
+						</div>
+						<div class="tab-pane fade" id="hibernate" role="tabpanel"
+							aria-labelledby="list-hibernate-list">
+							<a href="http://hibernate.org/orm/">Hibernate ORM</a> Usamos o hibernate
+							juntamente com JPA, para a criação dos métodos de CRUD, (Create, Read, Update, 
+							Delete).
+							
+						</div>
+						<div class="tab-pane fade" id="bootstrap" role="tabpanel"
+							aria-labelledby="list-bootstrap-list">
+							<a href="https://getbootstrap.com/">Bootstrap</a> utilizamos o bootstrap
+							para desenvolver alguns componentes de interface  junto com o HTML e CSS 
+							com a finalidade de melhorar a experiência do usuário.
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+	</section>		
+</body>
+</html>

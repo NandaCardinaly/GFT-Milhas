@@ -1,0 +1,84 @@
+ 
+ <!DOCTYPE html>
+<html layout:decorate="~{layout}">
+<head><meta charset="UTF-8"/></head>
+<body>
+ 
+  <section class="layout-content" layout:fragment="corpo">
+	
+	        <nav class="navbar navbar-expand-md bg-light">
+	            <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+	                <ul class="navbar-nav mr-auto">
+	                    <li class="nav-item active">
+	                        <i class="oi oi-caret-right"></i>
+	                        <span>Cadastrar Participantes</span>
+	                    </li>
+	                </ul>
+	                
+	                <a class="btn btn-primary btn-md" th:href="@{/participante}" role="button">
+	                    <span class="oi oi-spreadsheet" title="Listar" aria-hidden="true"></span>
+	                    <span>Listar Participantes</span>
+	                </a>
+	            </div>
+	        </nav>
+		<div class="alert alert-primary" th:if="${mensagem != null}" th:text="${mensagem}">
+											</div>
+
+			<div class="card-body">
+			<form method="POST" th:object="${participante}"
+				th:action="@{/participante/cadastrarEditar}">
+				<input type="hidden" th:field="*{id}">
+				
+	
+			<div class="form-group mb-3">
+					<label for="nome">Nome:</label> <input class="form-control"
+						type="text" th:field="*{nome}" required></input>
+					<div class="text-danger" th:if="${#fields.hasErrors('nome')}"
+						th:errors="*{nome}"></div>
+				</div>
+
+				
+				<div class="form-group mb-3">
+					<label for="email">Email:</label> <input class="form-control"
+						type="text" th:field="*{email}" required></input>
+					<div class="text-danger" th:if="${#fields.hasErrors('email')}"
+						th:errors="*{email}"></div>
+				</div>
+
+				<div class="form-group mb-3">
+					<label for="quatroLetras">Quatro Letras:</label> <input
+						class="form-control" type="text" th:field="*{quatroLetras}"
+						maxlength="4" required></input>
+					<div class="text-danger"
+						th:if="${#fields.hasErrors('quatroLetras')}"
+						th:errors="*{quatroLetras}"></div>
+				</div>
+
+
+				<div class="form-group mb-3">
+					<label for="nivel">Nível:</label> <input class="form-control"
+						type="text" th:field="*{nivel}" maxlength="10" required></input>
+					<div class="text-danger" th:if="${#fields.hasErrors('nivel')}"
+						th:errors="*{nivel}"></div>
+				</div>
+
+
+				<div class="form-group mb-3">
+					<label for="grupo">Grupo</label>
+					<select class="form-select" th:field="*{grupo}">
+						<option th:each="grupo: ${listaGrupo}" th:value="${grupo.id}" th:text="${grupo.nome}"></option>
+					</select>
+				</div>
+
+				<button type="submit" class="btn btn-primary">Salvar
+					Participante</button>
+			</form>
+		</div>
+	</div>
+	
+		
+	
+
+	    </section>
+</body>
+</html>

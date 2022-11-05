@@ -1,0 +1,49 @@
+ 
+ <!DOCTYPE html>
+<html layout:decorate="~{layout}">
+<head><meta charset="UTF-8"/></head>
+<body>
+ 
+  <section class="layout-content" layout:fragment="corpo">
+	
+	        <nav class="navbar navbar-expand-md bg-light">
+	            <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+	                <ul class="navbar-nav mr-auto">
+	                    <li class="nav-item active">
+	                        <i class="oi oi-caret-right"></i>
+	                        <span>Login</span>
+	                    </li>
+	                </ul>
+	            </div>
+	        </nav>
+		<div class="alert alert-primary" th:if="${mensagem != null}" th:text="${mensagem}">
+											</div>
+
+			<div class="card-body">
+			<form method="POST" th:object="${login}"
+				th:action="@{/login}">
+				
+
+				<div class="form-group mb-3">
+					<label for="quatroLetras">Quatro Letras:</label> <input
+						class="form-control" type="text" name="username"
+						maxlength="4" required></input>
+				</div>
+
+
+				<div class="form-group mb-3">
+					<label for="senha">Senha:</label> <input
+						class="form-control" type="password" name="password" required></input>
+				</div>
+
+				<button type="submit" class="btn btn-primary">Entrar</button>
+			</form>
+		</div>
+	</div>
+	
+		
+	
+
+	    </section>
+</body>
+</html>
